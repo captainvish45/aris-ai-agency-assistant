@@ -7,8 +7,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "aris-ai-agency-dev-secret-change-in-produc
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24
 SESSION_COOKIE_NAME = "aris_admin_session"
-DEFAULT_ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
-DEFAULT_ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
+DEFAULT_ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "Rohit4518")
+DEFAULT_ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "Manvilove")
 DEFAULT_ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "admin@arisai.com")
 
 SERVICE_OPTIONS = [
