@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Lead #{{ lead.id }} — ARIS AI Admin{% endblock %}
+{% block body_class %}admin-page{% endblock %}
+
+{% block navbar %}
+<nav class="navbar glass admin-nav">
+    <div class="container nav-container">
+        <a href="/admin/dashboard" class="logo">
+            <span class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </span>
+            <span class="logo-text">ARIS<span class="accent">AI</span></span>
+        </a>
+        <div class="nav-links">
+            <a href="/admin/dashboard" class="btn btn-ghost btn-sm">&larr; Back to Dashboard</a>
+            <a href="/admin/logout" class="btn btn-ghost btn-sm">Logout</a>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+    <div class="container">
+        {% if request.query_params.get('saved') %}
+        <div class="alert alert-success">Lead updated successfully.</div>
+        {% endif %}
+
+        <div class="lead-detail-header animate-fade-up">
+            <div>
+                <h1>{{ lead.full_name }}</h1>
+                <p>Lead #{{ lead.id }} &middot; <span class="status-badge status-{{ lead.status }}">{{ lead.status|title }}</span></p>
+            </div>
+            <form method="post" action="/admin/leads/{{ lead.id }}/delete" onsubmit="return confirm('Are you sure you want to delete this lead?');">
+                <button type="submit" class="btn btn-danger btn-sm">Delete Lead</button>
+            </form>
+        </div>
+
+        <form method="post" action="/admin/leads/{{ lead.id }}/update" class="lead-form glass animate-fade-up">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" value="{{ lead.full_name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" value="{{ lead.phone }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" value="{{ lead.email }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="business_name">Business Name</label>
+                    <input type="text" id="business_name" name="business_name" value="{{ lead.business_name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="business_type">Business Type</label>
+                    <input type="text" id="business_type" name="business_type" value="{{ lead.business_type }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="monthly_revenue">Monthly Revenue</label>
+                    <input type="text" id="monthly_revenue" name="monthly_revenue" value="{{ lead.monthly_revenue }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="monthly_marketing_budget">Monthly Marketing Budget</label>
+                    <input type="text" id="monthly_marketing_budget" name="monthly_marketing_budget" value="{{ lead.monthly_marketing_budget }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="service_needed">Service Needed</label>
+                    <select id="service_needed" name="service_needed" required>
+                        {% for svc in services %}
+                        <option value="{{ svc }}" {% if lead.service_needed == svc %}selected{% endif %}>{{ svc }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" required>
+                        {% for s in statuses %}
+                        <option value="{{ s }}" {% if lead.status == s %}selected{% endif %}>{{ s|title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="follow_up_date">Follow-Up Date</label>
+                    <input type="date" id="follow_up_date" name="follow_up_date" value="{{ lead.follow_up_date.isoformat() if lead.follow_up_date else '' }}">
+                </div>
+                <div class="form-group">
+                    <label for="last_contact_date">Last Contact Date</label>
+                    <input type="date" id="last_contact_date" name="last_contact_date" value="{{ lead.last_contact_date.isoformat() if lead.last_contact_date else '' }}">
+                </div>
+                <div class="form-group full-width">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" rows="5" placeholder="Add follow-up notes...">{{ lead.notes or '' }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-meta">
+                <span>Created: {{ lead.created_at.strftime('%b %d, %Y at %I:%M %p') if lead.created_at else 'N/A' }}</span>
+                <span>Updated: {{ lead.updated_at.strftime('%b %d, %Y at %I:%M %p') if lead.updated_at else 'N/A' }}</span>
+            </div>
+
+            <div class="form-actions">
+                <a href="/admin/dashboard" class="btn btn-outline">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}{% endblock %}

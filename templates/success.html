@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Submission Successful — ARIS AI{% endblock %}
+
+{% block content %}
+<section class="success-section">
+    <div class="container">
+        <div class="success-card glass animate-fade-up">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+            </div>
+            <h1>Thank You!</h1>
+            <p class="success-message">Your information has been submitted successfully. Our team will review your details and reach out shortly.</p>
+            {% if lead_id %}
+            <p class="lead-ref">Reference ID: <strong>#{{ lead_id }}</strong></p>
+            {% endif %}
+            <div class="success-actions">
+                <a href="/" class="btn btn-outline">Back to Home</a>
+                <a href="/chat" class="btn btn-primary">Submit Another Lead</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

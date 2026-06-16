@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}AI Assistant — ARIS AI Agency{% endblock %}
+{% block body_class %}chat-page{% endblock %}
+
+{% block content %}
+<section class="chat-section">
+    <div class="container chat-container">
+        <div class="chat-wrapper glass animate-fade-up">
+            <div class="chat-app-header">
+                <div class="chat-app-info">
+                    <div class="avatar pulse">AI</div>
+                    <div>
+                        <h2>ARIS AI Assistant</h2>
+                        <span class="online"><span class="pulse-dot"></span> Ready to help</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <span class="progress-text" id="progress-text">Step 1 of 8</span>
+            </div>
+
+            <div class="chat-messages-area" id="chat-messages">
+                <div class="message bot animate-message">
+                    <div class="message-avatar">AI</div>
+                    <div class="message-content">
+                        <p>Welcome to ARIS AI! I'm your agency assistant. Let's get started — what's your full name?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="typing-indicator hidden" id="typing-indicator">
+                <div class="message-avatar">AI</div>
+                <div class="typing-dots"><span></span><span></span><span></span></div>
+            </div>
+
+            <div class="chat-input-area" id="chat-input-area">
+                <form id="chat-form" class="chat-form">
+                    <div class="input-wrapper" id="input-wrapper">
+                        <input type="text" id="chat-input" placeholder="Type your answer..." autocomplete="off" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary send-btn" id="send-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <div class="chat-summary hidden" id="chat-summary">
+                <h3>Review Your Information</h3>
+                <div class="summary-grid" id="summary-grid"></div>
+                <div class="summary-actions">
+                    <button class="btn btn-outline" id="edit-btn">Edit Answers</button>
+                    <button class="btn btn-primary" id="confirm-btn">
+                        <span class="btn-text">Confirm & Submit</span>
+                        <span class="btn-loader hidden"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    window.SERVICE_OPTIONS = {{ service_options | tojson }};
+</script>
+<script src="/static/js/chat.js"></script>
+{% endblock %}

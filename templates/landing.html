@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block title %}ARIS AI — Intelligent Automation for Modern Businesses{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content animate-fade-up">
+            <div class="hero-badge glass">
+                <span class="pulse-dot"></span>
+                🚀 Free AI Consultation Available
+            </div>
+            <h1>Automate Your Business with <span class="gradient-text">AI-Powered Solutions</span></h1>
+            <p class="hero-subtitle">
+                ARIS AI helps businesses generate leads, automate customer conversations, book appointments, and scale operations using AI Chatbots, WhatsApp Automation, Instagram DM Automation, and Voice Agents.
+            </p>
+            <div class="hero-actions">
+                <a href="/chat" class="btn btn-primary btn-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    Talk to Our AI Assistant
+                </a>
+                <a href="#services" class="btn btn-outline btn-lg">Explore Services</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item glass">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Projects Delivered</span>
+                </div>
+                <div class="stat-item glass">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+                <div class="stat-item glass">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">AI Support</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual animate-fade-up delay-1">
+            <div class="hero-card glass">
+                <div class="chat-preview">
+                    <div class="chat-header">
+                        <div class="avatar">AI</div>
+                        <div>
+                            <strong>ARIS Assistant</strong>
+                            <span class="online">Online</span>
+                        </div>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message user">I need WhatsApp automation for my business.</div>
+
+<div class="message bot">
+Great! May I know your business type?
+</div>
+
+<div class="message user">
+Paint Store
+</div>
+
+<div class="message bot">
+Perfect. We can automate customer enquiries, colour consultations, quotation requests and lead collection on WhatsApp.
+</div>
+                    </div>
+                    <div class="typing-indicator">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section">
+    <div class="container">
+        <div class="section-header animate-fade-up">
+            <span class="section-tag">Our Services</span>
+            <h2>AI Solutions That <span class="gradient-text">Drive Results</span></h2>
+            <p>End-to-end automation services tailored for growth-focused businesses.</p>
+        </div>
+        <div class="services-grid">
+            {% for service in service_options %}
+            <div class="service-card glass animate-fade-up">
+                <div class="service-icon">
+                    {% if loop.index == 1 %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    {% elif loop.index == 2 %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/></svg>
+                    {% elif loop.index == 3 %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg>
+                    {% elif loop.index == 4 %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                    {% elif loop.index == 5 %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    {% elif loop.index == 6 %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    {% elif loop.index == 7 %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    {% else %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    {% endif %}
+                </div>
+                <h3>{{ service }}</h3>
+                <p>Enterprise-grade {{ service|lower }} built to scale with your business needs.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="features" class="section section-dark">
+    <div class="container">
+        <div class="section-header animate-fade-up">
+            <span class="section-tag">Why ARIS AI</span>
+            <h2>Built for <span class="gradient-text">Modern Agencies</span></h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card glass animate-fade-up">
+                <div class="feature-number">01</div>
+                <h3>Smart Lead Capture</h3>
+                <p>Conversational AI that qualifies leads naturally and captures every detail automatically.</p>
+            </div>
+            <div class="feature-card glass animate-fade-up delay-1">
+                <div class="feature-number">02</div>
+                <h3>Real-Time Dashboard</h3>
+                <p>Track, manage, and follow up on every lead with powerful admin tools and analytics.</p>
+            </div>
+            <div class="feature-card glass animate-fade-up delay-2">
+                <div class="feature-number">03</div>
+                <h3>Export & Reports</h3>
+                <p>Download CSV exports and detailed lead reports for your sales pipeline.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="section-header animate-fade-up">
+            <span class="section-tag">About ARIS AI</span>
+            <h2>Helping Businesses Grow with <span class="gradient-text">AI Automation</span></h2>
+            <p>
+                ARIS AI helps businesses automate customer communication,
+                lead generation, appointment booking, and customer support
+                using intelligent AI-powered solutions.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card glass">
+                <div class="feature-number">01</div>
+                <h3>AI Chatbots</h3>
+                <p>Automate customer conversations and capture leads 24/7.</p>
+            </div>
+
+            <div class="feature-card glass">
+                <div class="feature-number">02</div>
+                <h3>WhatsApp Automation</h3>
+                <p>Engage customers instantly with automated WhatsApp workflows.</p>
+            </div>
+
+            <div class="feature-card glass">
+                <div class="feature-number">03</div>
+                <h3>AI Voice Agents</h3>
+                <p>Handle customer calls automatically and never miss a lead.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+
+        <div class="section-header animate-fade-up">
+            <span class="section-tag">Pricing</span>
+            <h2>Simple & Transparent Pricing</h2>
+            <p>Choose the plan that fits your business needs.</p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card glass">
+    <h3>Starter</h3>
+    <h2>₹7,999</h2>
+    <p>AI Chatbot Setup</p>
+    <p>Lead Capture Form</p>
+    <p>Admin Dashboard</p>
+    <p>7 Days Support</p>
+</div>
+
+<div class="service-card glass featured-plan">
+    <span class="section-tag">Most Popular</span>
+    <h3>Growth</h3>
+    <h2>₹14,999</h2>
+    <p>AI Chatbot</p>
+    <p>WhatsApp Automation</p>
+    <p>Appointment Booking</p>
+    <p>15 Days Support</p>
+</div>
+
+            
+            <div class="service-card glass">
+                <h3>Premium</h3>
+                <h2>₹29,999</h2>
+                <p>Everything Included</p>
+                <p>Instagram DM Automation</p>
+                <p>AI Voice Agent</p>
+                <p>Priority Support</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="section-header animate-fade-up">
+            <span class="section-tag">Contact Us</span>
+            <h2>Let's Build Your Next AI Solution</h2>
+            <p>Get in touch with us and start automating your business today.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card glass">
+                <h3>📱 WhatsApp</h3>
+                <p>
+                    <a href="https://wa.me/919354784919">
+                        +91 93547 84919
+                    </a>
+                </p>
+            </div>
+
+            <div class="feature-card glass">
+                <h3>📧 Email</h3>
+                <p>
+    <a href="mailto:contact@arisai.com">
+        contact@arisai.com
+    </a>
+</p>            </div>
+
+            <div class="feature-card glass">
+                <h3>📍 Location</h3>
+                <p>Delhi NCR</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section cta-section">
+    <div class="container">
+        <div class="cta-card glass animate-fade-up">
+            <h2>Ready to Automate Your Growth?</h2>
+            <p>Start a conversation with our AI assistant and get a personalized solution recommendation in minutes.</p>
+            <a href="/chat" class="btn btn-primary btn-lg">Get Started Free</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
